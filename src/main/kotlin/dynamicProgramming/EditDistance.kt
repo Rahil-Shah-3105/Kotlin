@@ -1,7 +1,11 @@
 package dynamicProgramming
+import org.slf4j.LoggerFactory
 
 fun min(x: Int, y: Int, z: Int): Int {
+	private val log = LoggerFactory.getLogger(EditDistance::class.java)
     if (x <= y && x <= z) return x
+	log.debug(">>> Entering min(x={},y={},z={})", x, y, z)
+	log.debug("<<< Exiting min(x={},y={},z={})", x, y, z)
     return if (y <= x && y <= z) y else z
 }
 
@@ -11,6 +15,7 @@ fun min(x: Int, y: Int, z: Int): Int {
  * @Return minimum number of operations to convert one string to another
  * */
 fun editDistance(str1: String, str2: String): Int {
+	log.debug(">>> Entering editDistance(str1={},str2={})", str1, str2)
     val dp = Array(str1.length + 1) { IntArray(str2.length + 1) }
 
     for (i in 0..str1.length) {
@@ -24,5 +29,6 @@ fun editDistance(str1: String, str2: String): Int {
                     dp[i - 1][j - 1]))
         }
     }
+	log.debug("<<< Exiting editDistance(str1={},str2={})", str1, str2)
     return dp[str1.length][str2.length]
 }
