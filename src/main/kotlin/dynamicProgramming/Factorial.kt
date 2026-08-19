@@ -1,4 +1,5 @@
 package dynamicProgramming
+import org.slf4j.LoggerFactory
 
 /**
  * This is a tail-recursive implementation of factorial calculation.
@@ -7,7 +8,10 @@ package dynamicProgramming
  * @return factorial of the input number
  */
 tailrec fun factorial(n: Int, accumulator: Int = 1): Int {
+	private val log = LoggerFactory.getLogger(Factorial::class.java)
     if (n == 0) {
+		log.debug(">>> Entering factorial(n={},accumulator={})", n, accumulator)
+	log.debug("<<< Exiting factorial(n={},accumulator={})", n, accumulator)
         return accumulator
     }
 

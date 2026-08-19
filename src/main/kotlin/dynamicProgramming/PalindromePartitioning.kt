@@ -1,4 +1,5 @@
 package dynamic_programming
+import org.slf4j.LoggerFactory
 
 /**
  * Palindrome Partitioning Algorithm
@@ -19,8 +20,11 @@ package dynamic_programming
  * @return whether string is a palindrome or not
  **/
 fun isPalindrome(string: String, i: Int, j: Int): Boolean {
+	private val log = LoggerFactory.getLogger(PalindromePartitioning::class.java)
     for (l in 0..(j - i) / 2) {
+		log.debug(">>> Entering isPalindrome(string={},i={},j={})", string, i, j)
         if (string[l + i] != string[j - l]) {
+		log.debug("<<< Exiting isPalindrome(string={},i={},j={})", string, i, j)
             return false
         }
     }
@@ -35,6 +39,7 @@ fun isPalindrome(string: String, i: Int, j: Int): Boolean {
  * @return minimum number of partitions required
  **/
 fun palindromePartition(string: String, i: Int, j: Int): Int {
+	log.debug(">>> Entering palindromePartition(string={},i={},j={})", string, i, j)
     if (i >= j) {
         return 0
     }
@@ -52,6 +57,7 @@ fun palindromePartition(string: String, i: Int, j: Int): Int {
         }
     }
     dp[i][j] = mn
+	log.debug("<<< Exiting palindromePartition(string={},i={},j={})", string, i, j)
     return dp[i][j]
 }
 
@@ -66,6 +72,8 @@ lateinit var dp: Array<Array<Int>>
  * @param String the string on which algorithm is to be operated
  */
 fun initialize(string: String): Int {
+	log.debug(">>> Entering initialize(string={})", string)
     dp = Array(string.length) { Array(string.length) { -1 } }
+	log.debug("<<< Exiting initialize(string={})", string)
     return palindromePartition(string, 0, string.length - 1)
 }
