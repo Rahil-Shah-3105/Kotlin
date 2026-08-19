@@ -1,6 +1,7 @@
 package dynamicProgramming
 
 import kotlin.math.max
+import org.slf4j.LoggerFactory
 
 /* This algorithm is Unbounded Knapsack Problem
 
@@ -9,7 +10,9 @@ import kotlin.math.max
  */
 
 fun unboundedKnapsack(W: Int, wt: IntArray, v: IntArray, n: Int): Int {
+private val log = LoggerFactory.getLogger(UnboundedKnapsack::class.java)
 
+	log.debug(">>> Entering unboundedKnapsack(W={},wt={},v={},n={})", W, wt, v, n)
     if (W < 0) return 0
 
     val dp = IntArray(W + 1)
@@ -27,5 +30,6 @@ fun unboundedKnapsack(W: Int, wt: IntArray, v: IntArray, n: Int): Int {
         print(" ")
     }
     println(dp[W])
+	log.debug("<<< Exiting unboundedKnapsack(W={},wt={},v={},n={})", W, wt, v, n)
     return dp[W]
 }

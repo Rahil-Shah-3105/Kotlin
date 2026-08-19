@@ -1,6 +1,7 @@
 package dynamicProgramming
 
 import kotlin.math.min
+import org.slf4j.LoggerFactory
 
 
 /*
@@ -9,7 +10,9 @@ import kotlin.math.min
  * @Return minimum time to cross n stations
  * */
 fun AssemblyLineScheduling(n:Int,a:Array<IntArray>,t:Array<IntArray>,e:IntArray,x:IntArray):Int {
+private val log = LoggerFactory.getLogger(AssemblyLineScheduling::class.java)
 
+	log.debug(">>> Entering AssemblyLineScheduling(n={},a={},t={},e={},x={})", n, a, t, e, x)
     var L1:IntArray =  IntArray(n);
     var L2:IntArray = IntArray(n) ;
     var i=0;
@@ -26,6 +29,7 @@ fun AssemblyLineScheduling(n:Int,a:Array<IntArray>,t:Array<IntArray>,e:IntArray,
                 L1[i - 1] + t[0][i] + a[1][i]);
     }
 
+	log.debug("<<< Exiting AssemblyLineScheduling(n={},a={},t={},e={},x={})", n, a, t, e, x)
     return min(L1[n-1] + x[0],
             L2[n-1] + x[1]);
 
