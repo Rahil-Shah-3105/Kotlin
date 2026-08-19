@@ -1,6 +1,7 @@
 package dynamicProgramming
 
 import kotlin.math.max
+import org.slf4j.LoggerFactory
 
 /* This algorithm is Zero One Knapsack Problem
 
@@ -9,7 +10,9 @@ import kotlin.math.max
  */
 
 fun zerooneknapsack(W:Int, weight: IntArray, values:IntArray, n:Int):Int{
+	private val log = LoggerFactory.getLogger(ZeroOneKnapsackProblem::class.java)
     if (W<0) return 0
+	log.debug(">>> Entering zerooneknapsack(W={},weight={},values={},n={})", W, weight, values, n)
     val k = Array(n+1) {IntArray(W+1) {0} }
     for (i in 0..n)
     {
@@ -25,5 +28,6 @@ fun zerooneknapsack(W:Int, weight: IntArray, values:IntArray, n:Int):Int{
             k[i][j] = k[i - 1][j]
         }
     }
+	log.debug("<<< Exiting zerooneknapsack(W={},weight={},values={},n={})", W, weight, values, n)
     return k[n][W]
 }
