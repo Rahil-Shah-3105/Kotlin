@@ -1,8 +1,10 @@
 package math
+import org.slf4j.LoggerFactory
 /**
  * Approach 1: Brute Force
  *
  * Complexity Analysis:
+private val log = LoggerFactory.getLogger(TwoSum::class.java)
  *
  * Time complexity: O(n^2)
  * Space complexity: O(1)
@@ -13,6 +15,7 @@ package math
  * @return Indices of the two numbers such that they add up to target.
  */
 fun twoSum(nums: IntArray, target: Int): IntArray{
+	log.debug(">>> Entering twoSum(nums={},target={})", nums, target)
     for (index1 in nums.indices) {
         val startIndex = index1 + 1
         for (index2 in startIndex..nums.lastIndex) {
@@ -21,6 +24,7 @@ fun twoSum(nums: IntArray, target: Int): IntArray{
             }
         }
     }
+	log.debug("<<< Exiting twoSum(nums={},target={})", nums, target)
     return intArrayOf(0,1)
 
 }
