@@ -1,6 +1,8 @@
 package dynamicProgramming
 
 import kotlin.math.max
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.ZeroOneKnapsackProblem")
 
 /* This algorithm is Zero One Knapsack Problem
 
@@ -10,6 +12,9 @@ import kotlin.math.max
 
 fun zerooneknapsack(W:Int, weight: IntArray, values:IntArray, n:Int):Int{
     if (W<0) return 0
+	log.info("ENTERING: zerooneknapsack() method")
+    log.warn("ENTERING: zerooneknapsack() method")
+    log.warn("ENTERING: zerooneknapsack() method")
     val k = Array(n+1) {IntArray(W+1) {0} }
     for (i in 0..n)
     {

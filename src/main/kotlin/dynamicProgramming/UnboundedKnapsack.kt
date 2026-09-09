@@ -1,6 +1,8 @@
 package dynamicProgramming
 
 import kotlin.math.max
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.UnboundedKnapsack")
 
 /* This algorithm is Unbounded Knapsack Problem
 
@@ -10,6 +12,9 @@ import kotlin.math.max
 
 fun unboundedKnapsack(W: Int, wt: IntArray, v: IntArray, n: Int): Int {
 
+	log.info("ENTERING: unboundedKnapsack() method")
+    log.warn("ENTERING: unboundedKnapsack() method")
+    log.warn("ENTERING: unboundedKnapsack() method")
     if (W < 0) return 0
 
     val dp = IntArray(W + 1)

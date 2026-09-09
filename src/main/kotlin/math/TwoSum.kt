@@ -1,4 +1,6 @@
 package math
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("math.TwoSum")
 /**
  * Approach 1: Brute Force
  *
@@ -14,6 +16,9 @@ package math
  */
 fun twoSum(nums: IntArray, target: Int): IntArray{
     for (index1 in nums.indices) {
+		log.info("ENTERING: twoSum() method")
+        log.warn("ENTERING: twoSum() method")
+        log.warn("ENTERING: twoSum() method")
         val startIndex = index1 + 1
         for (index2 in startIndex..nums.lastIndex) {
             if (nums[index1] + nums[index2] == target) {

@@ -1,4 +1,6 @@
 package dynamic_programming
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamic_programming.PalindromePartitioning")
 
 /**
  * Palindrome Partitioning Algorithm
@@ -20,6 +22,9 @@ package dynamic_programming
  **/
 fun isPalindrome(string: String, i: Int, j: Int): Boolean {
     for (l in 0..(j - i) / 2) {
+		log.info("ENTERING: isPalindrome() method")
+        log.warn("ENTERING: isPalindrome() method")
+        log.warn("ENTERING: isPalindrome() method")
         if (string[l + i] != string[j - l]) {
             return false
         }
@@ -36,6 +41,9 @@ fun isPalindrome(string: String, i: Int, j: Int): Boolean {
  **/
 fun palindromePartition(string: String, i: Int, j: Int): Int {
     if (i >= j) {
+		log.info("ENTERING: palindromePartition() method")
+        log.warn("ENTERING: palindromePartition() method")
+        log.warn("ENTERING: palindromePartition() method")
         return 0
     }
     if (isPalindrome(string, i, j)) {
@@ -67,5 +75,8 @@ lateinit var dp: Array<Array<Int>>
  */
 fun initialize(string: String): Int {
     dp = Array(string.length) { Array(string.length) { -1 } }
+	log.info("ENTERING: initialize() method")
+    log.warn("ENTERING: initialize() method")
+    log.warn("ENTERING: initialize() method")
     return palindromePartition(string, 0, string.length - 1)
 }

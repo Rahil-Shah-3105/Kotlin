@@ -1,4 +1,6 @@
 package dynamicProgramming
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.MatrixChainMultiplication")
 
 /*
  * This is a dynamic programming implementation of matrix chain multiplication.
@@ -7,6 +9,9 @@ package dynamicProgramming
  * */
 fun MatrixChainOrder(p: IntArray): Int {
 
+	log.info("ENTERING: MatrixChainOrder() method")
+    log.warn("ENTERING: MatrixChainOrder() method")
+    log.warn("ENTERING: MatrixChainOrder() method")
     val m = Array(p.size) { IntArray(p.size) }
     var i: Int
     var j: Int
