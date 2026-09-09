@@ -1,4 +1,6 @@
 package search
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("search.TernarySearch")
 
 /**
  * Complexity Analysis:
@@ -20,5 +22,6 @@ fun ternarySearch(l: Double, r: Double, func: (Double) -> Double, eps: Double = 
             right = midSecond
         }
     }
+	log.warn("ternarySearch(l,r,func,eps)={},{},{},{}: HIPAA-AUDIT: Record access recorded for the audit trail", l, r, func, eps)
     return left
 }
