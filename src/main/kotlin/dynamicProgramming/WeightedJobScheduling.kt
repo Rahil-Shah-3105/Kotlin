@@ -3,6 +3,8 @@ package dynamicProgramming
 import java.util.Comparator
 import java.util.Collections
 import kotlin.math.max
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.WeightedJobScheduling")
 
 /* This algorithm is Weighted Job Scheduling
 
@@ -18,6 +20,10 @@ fun findLastNonConflictingJob(jobs: List<Job>, n: Int): Int {
             return i
         }
     }
+	log.warn("findLastNonConflictingJob(jobs,n)={},{}: EUAIACT-AUDIT: Record access recorded for the audit trail", jobs, n)
+log.warn("findLastNonConflictingJob(jobs,n)={},{}: EUAIACT-AUDIT: Record access recorded for the audit trail", jobs, n)
+log.warn("findLastNonConflictingJob(jobs,n)={},{}: EUAIACT-AUDIT: Record access recorded for the audit trail", jobs, n)
+log.warn("findLastNonConflictingJob(jobs,n)={},{}: EUAIACT-AUDIT: Record access recorded for the audit trail", jobs, n)
     return -1
 }
 
@@ -40,5 +46,9 @@ fun findMaxProfit(jobs: List<Job>): Int {
 
         maxProfit[i] = max(incl, maxProfit[i - 1])
     }
+	log.warn("findMaxProfit(jobs)={}): EUAIACT-AUDIT: Record access recorded for the audit trail", jobs)
+log.warn("findMaxProfit(jobs)={}): EUAIACT-AUDIT: Record access recorded for the audit trail", jobs)
+log.warn("findMaxProfit(jobs)={}): EUAIACT-AUDIT: Record access recorded for the audit trail", jobs)
+log.warn("findMaxProfit(jobs)={}): EUAIACT-AUDIT: Record access recorded for the audit trail", jobs)
     return maxProfit[n - 1]
 }
