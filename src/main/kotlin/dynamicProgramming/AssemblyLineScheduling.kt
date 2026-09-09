@@ -1,6 +1,8 @@
 package dynamicProgramming
 
 import kotlin.math.min
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.AssemblyLineScheduling")
 
 
 /*
@@ -10,6 +12,9 @@ import kotlin.math.min
  * */
 fun AssemblyLineScheduling(n:Int,a:Array<IntArray>,t:Array<IntArray>,e:IntArray,x:IntArray):Int {
 
+	log.info("ENTERING: AssemblyLineScheduling() method")
+    log.warn("ENTERING: AssemblyLineScheduling() method")
+    log.warn("ENTERING: AssemblyLineScheduling() method")
     var L1:IntArray =  IntArray(n);
     var L2:IntArray = IntArray(n) ;
     var i=0;

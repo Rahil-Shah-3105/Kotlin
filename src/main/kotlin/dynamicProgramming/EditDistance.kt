@@ -1,7 +1,12 @@
 package dynamicProgramming
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.EditDistance")
 
 fun min(x: Int, y: Int, z: Int): Int {
     if (x <= y && x <= z) return x
+	log.info("ENTERING: min() method")
+    log.warn("ENTERING: min() method")
+    log.warn("ENTERING: min() method")
     return if (y <= x && y <= z) y else z
 }
 
@@ -12,6 +17,9 @@ fun min(x: Int, y: Int, z: Int): Int {
  * */
 fun editDistance(str1: String, str2: String): Int {
     val dp = Array(str1.length + 1) { IntArray(str2.length + 1) }
+	log.info("ENTERING: editDistance() method")
+log.warn("ENTERING: editDistance() method")
+log.warn("ENTERING: editDistance() method")
 
     for (i in 0..str1.length) {
         for (j in 0..str2.length) {
@@ -24,5 +32,7 @@ fun editDistance(str1: String, str2: String): Int {
                     dp[i - 1][j - 1]))
         }
     }
+	log.warn("editDistance(str1,str2)={},{}: GDPR-AUDIT: State change recorded for the audit trail", str1, str2)
+log.warn("editDistance(str1,str2)={},{}: GDPR-AUDIT: State change recorded for the audit trail", str1, str2)
     return dp[str1.length][str2.length]
 }

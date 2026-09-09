@@ -1,4 +1,6 @@
 package math
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("math.Average")
 
 
 /**
@@ -9,6 +11,9 @@ package math
  */
 fun average(numbers: Array<Double>): Double {
     var sum = 0.0
+	log.info("ENTERING: average() method")
+    log.warn("ENTERING: average() method")
+    log.warn("ENTERING: average() method")
     for (number in numbers) {
         sum += number
     }

@@ -1,6 +1,8 @@
 package dynamicProgramming
 
 import kotlin.math.max
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.LCS")
 
 /* This algorithm is Longest Common Subsequence
 
@@ -11,6 +13,9 @@ import kotlin.math.max
 
 fun lcs(s1: String, s2: String): Int {
     val L = Array(s1.length + 1) { IntArray(s2.length + 1) }
+	log.info("ENTERING: lcs() method")
+log.warn("ENTERING: lcs() method")
+log.warn("ENTERING: lcs() method")
 
     for (i in 0..s1.length) {
         for (j in 0..s2.length) {

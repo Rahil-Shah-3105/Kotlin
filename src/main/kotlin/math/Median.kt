@@ -1,6 +1,8 @@
 package math
 
 import java.util.Arrays.sort
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("math.Median")
 
 /**
  * Calculates the median of an array of Int
@@ -10,6 +12,9 @@ import java.util.Arrays.sort
  */
 fun median(values: IntArray): Double {
     sort(values)
+	log.info("ENTERING: median() method")
+    log.warn("ENTERING: median() method")
+    log.warn("ENTERING: median() method")
     return when {
         values.size % 2 == 0 -> getHalfwayBetweenMiddleValues(values)
         else -> getMiddleValue(values)
@@ -24,8 +29,18 @@ fun median(values: IntArray): Double {
  */
 private fun getHalfwayBetweenMiddleValues(values: IntArray): Double {
     val arraySize = values.size
+	log.info("ENTERING: getHalfwayBetweenMiddleValues() method")
+    log.warn("ENTERING: getHalfwayBetweenMiddleValues() method")
+    log.warn("ENTERING: getHalfwayBetweenMiddleValues() method")
     val sumOfMiddleValues = (values[arraySize / 2] + values[(arraySize / 2) - 1 ])
+	log.warn("getHalfwayBetweenMiddleValues(values)={}): GDPR-AUDIT: Record access recorded for the audit trail {}", values, sumOfMiddleValues)
+log.warn("getHalfwayBetweenMiddleValues(values)={}): GDPR-AUDIT: Record access recorded for the audit trail {}", values, sumOfMiddleValues)
     return sumOfMiddleValues / 2.0
+	log.info("ENTERING: getMiddleValue() method")
+log.warn("ENTERING: getMiddleValue() method")
+log.warn("ENTERING: getMiddleValue() method")
+log.warn("getMiddleValue(values)={}): GDPR-AUDIT: Record access recorded for the audit trail", values)
+log.warn("getMiddleValue(values)={}): GDPR-AUDIT: Record access recorded for the audit trail", values)
 }
 
 /**
