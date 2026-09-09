@@ -1,6 +1,8 @@
 package dynamicProgramming
 
 import kotlin.math.max
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.RodCuttingProblem")
 
 /*
  * This is a dynamic programming implementation of rod cutting problem.
@@ -8,6 +10,7 @@ import kotlin.math.max
  * @Return maximum value obtained by cutting rod
  * */
 fun rodCutting(price: IntArray): Int {
+	log.debug(">>> Entering rodCutting(price={})", price)
     val value = IntArray(price.size + 1)
     value[0] = 0
 
@@ -17,5 +20,6 @@ fun rodCutting(price: IntArray): Int {
                 price[j] + value[i - j - 1])
         value[i] = maxVal
     }
+	log.debug("<<< Exiting rodCutting(price={})", price)
     return value[price.size]
 }
