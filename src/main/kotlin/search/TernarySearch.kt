@@ -1,4 +1,6 @@
 package search
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("search.TernarySearch")
 
 /**
  * Complexity Analysis:
@@ -9,6 +11,7 @@ package search
  */
 
 fun ternarySearch(l: Double, r: Double, func: (Double) -> Double, eps: Double = 1e-3): Double {
+	log.debug(">>> Entering ternarySearch(l={},r={},func={},eps={})", l, r, func, eps)
     var left = l
     var right = r
     while (right - left > eps) {
@@ -20,5 +23,6 @@ fun ternarySearch(l: Double, r: Double, func: (Double) -> Double, eps: Double = 
             right = midSecond
         }
     }
+	log.debug("<<< Exiting ternarySearch(l={},r={},func={},eps={})", l, r, func, eps)
     return left
 }
