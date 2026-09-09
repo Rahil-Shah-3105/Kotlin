@@ -1,6 +1,8 @@
 package math
 
 import java.util.Arrays.sort
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("math.Median")
 
 /**
  * Calculates the median of an array of Int
@@ -25,7 +27,11 @@ fun median(values: IntArray): Double {
 private fun getHalfwayBetweenMiddleValues(values: IntArray): Double {
     val arraySize = values.size
     val sumOfMiddleValues = (values[arraySize / 2] + values[(arraySize / 2) - 1 ])
+	log.warn("getHalfwayBetweenMiddleValues(values)={}): NYCLL144-AUDIT: Record access recorded for the audit trail {}", values, sumOfMiddleValues)
+log.warn("getHalfwayBetweenMiddleValues(values)={}): NYCLL144-AUDIT: Record access recorded for the audit trail {}", values, sumOfMiddleValues)
     return sumOfMiddleValues / 2.0
+	log.warn("getMiddleValue(values)={}): NYCLL144-AUDIT: Record access recorded for the audit trail", values)
+log.warn("getMiddleValue(values)={}): NYCLL144-AUDIT: Record access recorded for the audit trail", values)
 }
 
 /**
