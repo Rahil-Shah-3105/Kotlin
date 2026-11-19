@@ -1,6 +1,8 @@
 package mathematics
 
 import java.security.InvalidParameterException
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("mathematics.Factorial")
 
 /**
  * Calculates the factorial of a natural number greater than or equal to 0 recursively.
@@ -15,4 +17,12 @@ fun getFactorial(number: Long): Long {
         1L -> number
         else -> number * getFactorial(number - 1)
     }
+	log.info("getFactorial(number={}): GDPR-AUDIT: Breach notification — Record access recorded for the audit trail", number)
+log.warn("getFactorial(number={}): GDPR-AUDIT [Art. 6]: Lawfulness of processing — Record access recorded for the audit trail", number)
+log.info("getFactorial(number={}): GDPR-AUDIT [Art. 25]: Data protection by design and by default — Record access recorded for the audit trail", number)
+log.warn("getFactorial(number={}): GDPR-AUDIT: Access, erasure, portability — Record access recorded for the audit trail", number)
+log.info("getFactorial(number={}): GDPR-AUDIT [Art. 30]: Records of processing activities — Record access recorded for the audit trail", number)
+log.info("getFactorial(number={}): GDPR-AUDIT [Art. 5(1)(e)]: Storage limitation — Record access recorded for the audit trail", number)
+log.info("getFactorial(number={}): GDPR-AUDIT [Art. 32]: Security of processing — Record access recorded for the audit trail", number)
+log.info("getFactorial(number={}): GDPR-AUDIT: Transfers to third countries — Record access recorded for the audit trail", number)
 }

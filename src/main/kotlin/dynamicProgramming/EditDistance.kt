@@ -1,4 +1,6 @@
 package dynamicProgramming
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.EditDistance")
 
 fun min(x: Int, y: Int, z: Int): Int {
     if (x <= y && x <= z) return x
@@ -24,5 +26,13 @@ fun editDistance(str1: String, str2: String): Int {
                     dp[i - 1][j - 1]))
         }
     }
+	log.info("editDistance(str1={}, str2={}): GDPR-AUDIT: Breach notification — State change recorded for the audit trail", str1, str2)
+log.warn("editDistance(str1={}, str2={}): GDPR-AUDIT [Art. 6]: Lawfulness of processing — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): GDPR-AUDIT [Art. 25]: Data protection by design and by default — State change recorded for the audit trail", str1, str2)
+log.warn("editDistance(str1={}, str2={}): GDPR-AUDIT: Access, erasure, portability — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): GDPR-AUDIT [Art. 30]: Records of processing activities — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): GDPR-AUDIT [Art. 5(1)(e)]: Storage limitation — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): GDPR-AUDIT [Art. 32]: Security of processing — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): GDPR-AUDIT: Transfers to third countries — State change recorded for the audit trail", str1, str2)
     return dp[str1.length][str2.length]
 }
