@@ -3,6 +3,8 @@ package dynamicProgramming
 import java.util.Comparator
 import java.util.Collections
 import kotlin.math.max
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.WeightedJobScheduling")
 
 /* This algorithm is Weighted Job Scheduling
 
@@ -18,6 +20,9 @@ fun findLastNonConflictingJob(jobs: List<Job>, n: Int): Int {
             return i
         }
     }
+	log.info("findLastNonConflictingJob(jobs={}, n={}): COPPA-AUDIT [16 CFR 312.10]: Retention deletion — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): COPPA-AUDIT [16 CFR 312.5(a)(2)]: Third party disclosure — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): COPPA-AUDIT [16 CFR 312.5]: Vpc coverage — Record access recorded for the audit trail", jobs, n)
     return -1
 }
 
@@ -40,5 +45,8 @@ fun findMaxProfit(jobs: List<Job>): Int {
 
         maxProfit[i] = max(incl, maxProfit[i - 1])
     }
+	log.info("findMaxProfit(jobs={}): COPPA-AUDIT [16 CFR 312.10]: Retention deletion — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): COPPA-AUDIT [16 CFR 312.5(a)(2)]: Third party disclosure — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): COPPA-AUDIT [16 CFR 312.5]: Vpc coverage — Record access recorded for the audit trail", jobs)
     return maxProfit[n - 1]
 }
