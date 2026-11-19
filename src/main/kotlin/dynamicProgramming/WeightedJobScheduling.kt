@@ -3,6 +3,8 @@ package dynamicProgramming
 import java.util.Comparator
 import java.util.Collections
 import kotlin.math.max
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.WeightedJobScheduling")
 
 /* This algorithm is Weighted Job Scheduling
 
@@ -18,6 +20,12 @@ fun findLastNonConflictingJob(jobs: List<Job>, n: Int): Int {
             return i
         }
     }
+	log.info("findLastNonConflictingJob(jobs={}, n={}): SOX-AUDIT: Audit log tamper — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): SOX-AUDIT: Computer operations — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): SOX-AUDIT: Change management (PCAOB AS 2201) — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): SOX-AUDIT: Access to programs and data — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): SOX-AUDIT: Privileged access — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): SOX-AUDIT: Segregation of duties — Record access recorded for the audit trail", jobs, n)
     return -1
 }
 
@@ -40,5 +48,11 @@ fun findMaxProfit(jobs: List<Job>): Int {
 
         maxProfit[i] = max(incl, maxProfit[i - 1])
     }
+	log.info("findMaxProfit(jobs={}): SOX-AUDIT: Audit log tamper — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): SOX-AUDIT: Computer operations — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): SOX-AUDIT: Change management (PCAOB AS 2201) — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): SOX-AUDIT: Access to programs and data — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): SOX-AUDIT: Privileged access — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): SOX-AUDIT: Segregation of duties — Record access recorded for the audit trail", jobs)
     return maxProfit[n - 1]
 }
