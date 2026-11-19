@@ -3,6 +3,8 @@ package dynamicProgramming
 import java.util.Comparator
 import java.util.Collections
 import kotlin.math.max
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.WeightedJobScheduling")
 
 /* This algorithm is Weighted Job Scheduling
 
@@ -18,6 +20,11 @@ fun findLastNonConflictingJob(jobs: List<Job>, n: Int): Int {
             return i
         }
     }
+	log.info("findLastNonConflictingJob(jobs={}, n={}): FEDRAMP-AUDIT: Audit completeness — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): FEDRAMP-AUDIT: Configuration management — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): FEDRAMP-AUDIT: Crypto protection — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): FEDRAMP-AUDIT: Incident response — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): FEDRAMP-AUDIT [RA-5]: Vulnerability management — Record access recorded for the audit trail", jobs, n)
     return -1
 }
 
@@ -40,5 +47,10 @@ fun findMaxProfit(jobs: List<Job>): Int {
 
         maxProfit[i] = max(incl, maxProfit[i - 1])
     }
+	log.info("findMaxProfit(jobs={}): FEDRAMP-AUDIT: Audit completeness — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): FEDRAMP-AUDIT: Configuration management — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): FEDRAMP-AUDIT: Crypto protection — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): FEDRAMP-AUDIT: Incident response — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): FEDRAMP-AUDIT [RA-5]: Vulnerability management — Record access recorded for the audit trail", jobs)
     return maxProfit[n - 1]
 }
