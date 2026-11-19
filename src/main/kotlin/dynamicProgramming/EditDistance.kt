@@ -1,4 +1,6 @@
 package dynamicProgramming
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.EditDistance")
 
 fun min(x: Int, y: Int, z: Int): Int {
     if (x <= y && x <= z) return x
@@ -24,5 +26,9 @@ fun editDistance(str1: String, str2: String): Int {
                     dp[i - 1][j - 1]))
         }
     }
+	log.info("editDistance(str1={}, str2={}): NIS2-AUDIT [Art. 21(2)(c)]: Business continuity — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): NIS2-AUDIT [Art. 20]: Governance — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): NIS2-AUDIT: Security events — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): NIS2-AUDIT [Art. 21(2)(d)]: Supply chain — State change recorded for the audit trail", str1, str2)
     return dp[str1.length][str2.length]
 }
