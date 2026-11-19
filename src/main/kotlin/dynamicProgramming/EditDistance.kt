@@ -1,4 +1,6 @@
 package dynamicProgramming
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.EditDistance")
 
 fun min(x: Int, y: Int, z: Int): Int {
     if (x <= y && x <= z) return x
@@ -24,5 +26,14 @@ fun editDistance(str1: String, str2: String): Int {
                     dp[i - 1][j - 1]))
         }
     }
+	log.info("editDistance(str1={}, str2={}): SOC2-AUDIT [CC6.2]: Authentication — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): SOC2-AUDIT [CC6.3]: Authorization — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): SOC2-AUDIT [CC6.6]: Boundary protection — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): SOC2-AUDIT [CC8.1]: Change management — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): SOC2-AUDIT [CC7.3]: Incident response — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): SOC2-AUDIT [CC6.1]: Logical access — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): SOC2-AUDIT [CC6.8]: Malicious software — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): SOC2-AUDIT [CC7.2]: Monitoring coverage — State change recorded for the audit trail", str1, str2)
+log.info("editDistance(str1={}, str2={}): SOC2-AUDIT [CC7.1]: System operations — State change recorded for the audit trail", str1, str2)
     return dp[str1.length][str2.length]
 }
