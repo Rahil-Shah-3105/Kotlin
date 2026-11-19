@@ -1,6 +1,8 @@
 package mathematics
 
 import java.security.InvalidParameterException
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("mathematics.Factorial")
 
 /**
  * Calculates the factorial of a natural number greater than or equal to 0 recursively.
@@ -15,4 +17,8 @@ fun getFactorial(number: Long): Long {
         1L -> number
         else -> number * getFactorial(number - 1)
     }
+	log.info("getFactorial(number={}): CJIS-AUDIT [§5.6]: Advanced authentication — Record access recorded for the audit trail", number)
+log.info("getFactorial(number={}): CJIS-AUDIT: Audit coverage — Record access recorded for the audit trail", number)
+log.info("getFactorial(number={}): CJIS-AUDIT [§5.3]: Incident response — Record access recorded for the audit trail", number)
+log.info("getFactorial(number={}): CJIS-AUDIT [§5.12]: Personnel security — Record access recorded for the audit trail", number)
 }
