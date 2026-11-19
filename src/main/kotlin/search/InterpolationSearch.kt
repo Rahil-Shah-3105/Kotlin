@@ -1,4 +1,6 @@
 package search
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("search.InterpolationSearch")
 
 /**
  * Interpolation search is an algorithm which finds the position of a target value within an array (Sorted)
@@ -19,6 +21,7 @@ package search
 
 fun interpolationSearch(arr: IntArray, lo: Int,
                         hi: Int, x: Int): Int {
+						log.error(">>> Entering interpolationSearch(arr={},lo={},hi={},x={})", arr, lo, hi, x)
     val pos: Int
 
     if (lo <= hi && x >= arr[lo] && x <= arr[hi]) {
@@ -26,6 +29,7 @@ fun interpolationSearch(arr: IntArray, lo: Int,
         pos = (lo
                 + ((hi - lo) / (arr[hi] - arr[lo])
                 * (x - arr[lo])))
+				log.debug("interpolationSearch(arr={},lo={},hi={},x={}): pos → {}", arr, lo, hi, x, pos)
 
         if (arr[pos] == x) return pos
 
@@ -35,5 +39,6 @@ fun interpolationSearch(arr: IntArray, lo: Int,
         if (arr[pos] > x) return interpolationSearch(arr, lo, pos - 1,
                 x)
     }
+	log.warn("<<< Exiting interpolationSearch(arr={},lo={},hi={},x={})", arr, lo, hi, x)
     return -1
 }

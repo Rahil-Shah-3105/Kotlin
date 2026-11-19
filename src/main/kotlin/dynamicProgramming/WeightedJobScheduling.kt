@@ -3,6 +3,8 @@ package dynamicProgramming
 import java.util.Comparator
 import java.util.Collections
 import kotlin.math.max
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.WeightedJobScheduling")
 
 /* This algorithm is Weighted Job Scheduling
 
@@ -13,15 +15,18 @@ import kotlin.math.max
 class Job(var start: Int, var finish: Int, var profit: Int)
 
 fun findLastNonConflictingJob(jobs: List<Job>, n: Int): Int {
+	log.error(">>> Entering findLastNonConflictingJob(jobs={},n={})", jobs, n)
     for (i in n - 1 downTo 0) {
         if (jobs[i].finish <= jobs[n].start) {
             return i
         }
     }
+	log.warn("<<< Exiting findLastNonConflictingJob(jobs={},n={})", jobs, n)
     return -1
 }
 
 fun findMaxProfit(jobs: List<Job>): Int {
+	log.error(">>> Entering findMaxProfit(jobs={})", jobs)
     Collections.sort(jobs, Comparator.comparingInt { x: Job -> x.finish })
 
     val n = jobs.size
@@ -40,5 +45,6 @@ fun findMaxProfit(jobs: List<Job>): Int {
 
         maxProfit[i] = max(incl, maxProfit[i - 1])
     }
+	log.warn("<<< Exiting findMaxProfit(jobs={})", jobs)
     return maxProfit[n - 1]
 }
