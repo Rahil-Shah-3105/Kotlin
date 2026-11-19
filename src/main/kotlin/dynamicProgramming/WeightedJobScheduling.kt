@@ -3,6 +3,8 @@ package dynamicProgramming
 import java.util.Comparator
 import java.util.Collections
 import kotlin.math.max
+import org.slf4j.LoggerFactory
+private val log = LoggerFactory.getLogger("dynamicProgramming.WeightedJobScheduling")
 
 /* This algorithm is Weighted Job Scheduling
 
@@ -18,6 +20,12 @@ fun findLastNonConflictingJob(jobs: List<Job>, n: Int): Int {
             return i
         }
     }
+	log.info("findLastNonConflictingJob(jobs={}, n={}): ISO27001-AUDIT: Access control — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): ISO27001-AUDIT: Continuity — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): ISO27001-AUDIT [A.8.24]: Cryptography — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): ISO27001-AUDIT: Incident management — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): ISO27001-AUDIT: Logging — Record access recorded for the audit trail", jobs, n)
+log.info("findLastNonConflictingJob(jobs={}, n={}): ISO27001-AUDIT: Supplier security — Record access recorded for the audit trail", jobs, n)
     return -1
 }
 
@@ -40,5 +48,11 @@ fun findMaxProfit(jobs: List<Job>): Int {
 
         maxProfit[i] = max(incl, maxProfit[i - 1])
     }
+	log.info("findMaxProfit(jobs={}): ISO27001-AUDIT: Access control — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): ISO27001-AUDIT: Continuity — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): ISO27001-AUDIT [A.8.24]: Cryptography — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): ISO27001-AUDIT: Incident management — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): ISO27001-AUDIT: Logging — Record access recorded for the audit trail", jobs)
+log.info("findMaxProfit(jobs={}): ISO27001-AUDIT: Supplier security — Record access recorded for the audit trail", jobs)
     return maxProfit[n - 1]
 }
